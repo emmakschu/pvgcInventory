@@ -1,0 +1,151 @@
+\documentclass[titlepage]{article}
+
+\usepackage[margin=1.25in]{geometry}
+\usepackage{fancyhdr}
+
+
+\title{Pleasant View Golf Course Maintenance Inventory App: \\ Project Requirements}
+\author{Michael K Schumacher}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\leftmark}
+\fancyhead[L]{PVGC Inventory App: Project Requirements}
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\footrulewidth}{0.2pt}
+
+
+\begin{document}
+
+    \maketitle
+    
+    \vspace{20pt}
+    
+    \section{Background}
+        During the week of 12-18 March, 2017, Pleasant View Golf Course (hereafter PVGC) Greens
+        Superintendent Kevin Hurd informed me that Assistant Superintendent Matt Statz and 
+        Mechanic Eric Meinholz desired a computer application to create and manage a database of
+        their equipment and parts inventory. Currently the inventory is maintained with somewhat
+        irregular counts and tracked on paper and/or Excel spreadsheets. A more convenient, more
+        easily updated system is wanted.
+        
+        It is hoped that primary development and alpha-testing can be finished by mid-May, when
+        the golf season begins to get especially busy. Since this is such a small-scale,
+        personalized project, beta-testing will essentially be done by the enduser. Fixes,
+         refactoring, and general improvements will be done on-the-go as deemed necessary.
+        
+    \section{Platform}
+        The PVGC maintenance shop uses Windows 10 PCs. Development will be done primarily on Linux
+        (Arch Linux) and Oracle VirtualBox Windows 10 Virtual Machines running on the Linux hosts.
+        
+        \subsection{Primary implementation language}
+            To ensure maximum portability, the application will be written primarily in Java 8,
+            with JavaFX used for building the GUI.
+        
+        \subsection{Database}
+            Current plans are for a MariaDB implementation of the mysql server for the database.
+            Connection to the SQL server will be achieved with the JDBC driver.
+    
+    \section{Data to catalog}
+        NOTA BENE: The information in this section is subject to change based on client needs.
+        
+        \subsection{Equipment}
+            For equipment items (e.g. greens mowers, sprayers, aerators, etc), the following
+            parameters will need to be catalogued:
+            
+            \begin{itemize}
+                \item
+                Make
+                
+                \item
+                Model
+                
+                \item
+                Machine ID number (e.g. greens mower \#6)
+                
+                \item
+                Model year
+                
+                \item
+                Date purchased (estimated, if not known)
+                
+                \item
+                Date info updated (\verb|CURRENT_TIMESTAMP|)
+                
+            \end{itemize}
+        
+        \subsection{Parts}
+            Spare parts kept on hand will be tracked with the following parameters:
+            
+            \begin{itemize}
+                \item
+                Description (e.g. air filter)
+                
+                \item
+                Manufacturer
+                
+                \item
+                Manufacturers part number
+                
+                \item
+                Manufacturer's price
+                
+                \item
+                Alternative manufacturer 1
+                
+                \item
+                Alternative manufacturer 1 part number
+                
+                \item
+                Alternative manufacturer 1 price
+                
+                \item
+                Equipment on which part is used
+            \end{itemize}
+            
+    \section{GUI functionality}
+        The GUI need not be especially flashy. Utility and ease of use should be the primary
+        motivations.
+        
+        \subsection{Start page}
+            On launch, the application should display a logo, and menu items from which the
+            enduser will select which type of task he wishes to accomplish. Tasks should include:
+            
+            \begin{itemize}
+                \item
+                View inventory
+                    \begin{itemize}
+                        \item
+                        View inventory by item category
+                    \end{itemize}
+                
+                \item
+                View individual item
+                
+                \item
+                Edit individual item
+                
+                \item
+                Edit multiple items
+                    \begin{itemize}
+                        \item
+                        Edit items by category
+                    \end{itemize}
+                
+                \item
+                Search inventory
+            \end{itemize}
+            
+            \subsection{View inventory}
+                On viewing inventory, the GUI should display basic information about each item
+                in a grid. Enduser should be able to click an item to view it individually for
+                more detail. Grid should be setup similar to:
+                
+                \begin{tabular}{|l|l|l|l|} \hline
+                    make & model & ID & year \\ \hline
+                
+                \end{tabular}
+
+\end{document}
