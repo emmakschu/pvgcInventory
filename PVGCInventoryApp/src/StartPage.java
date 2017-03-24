@@ -98,7 +98,10 @@ public class StartPage extends Application {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Hello, world");
+		System.out.println("Pleasant View Golf Course maintenance database");
+		System.out.println("Version 0.1");
+		System.out.println("");
+		System.out.println("Starting");
 		
 		Application.launch(args);
 	}
